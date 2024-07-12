@@ -2,24 +2,24 @@
 <suite name="TestSuite" thread-count="3" parallel="tests">
     <test name="ChromeTest">
         <parameter name="browser" value="chrome"/>
-        <packages >
-            <package name="tests">
-            </package>
-        </packages>
+        <classes>
+            <class name="QualityLaboratoryTest">
+            </class>
+        </classes>
     </test>
     <test name="FirefoxTest">
         <parameter name="browser" value="firefox" />
-        <packages >
-            <package name="tests">
-            </package>
-        </packages>
+        <classes>
+            <class name="QualityLaboratoryTest">
+            </class>
+        </classes>
     </test>
     <test name="EdgeTest">
         <parameter name="browser" value="edge" />
-        <packages >
-            <package name="tests">
-            </package>
-        </packages>
+        <classes>
+            <class name="QualityLaboratoryTest">
+            </class>
+        </classes>
     </test>
     <!--    <listeners>-->
     <!--        <listener class-name="io.qameta.allure.testng.AllureTestNg" />-->
