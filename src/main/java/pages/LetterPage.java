@@ -20,8 +20,6 @@ public class LetterPage extends BasePage{
 	@FindBy(xpath="//*[@data-test-id='send']")
 	private WebElement buttonSend;
 	
-	@FindBy(xpath="//*[@data-test-id='send']")
+	@FindBy(xpath="//*[@href='/sent/3tTI59YZ/?']")
 	private WebElement sendingMessage;
-	
-	//href="/sent/3tTI59YZ/?"
 }
