@@ -33,7 +33,7 @@ public class QualityLaboratoryTest extends BaseTest {
 	}
 	
 	@Test
-	public void testSendEmail() throws InterruptedException {
+	public void testSendEmail() {
 	
 		mainStep.clickElement(mainPage.getLoginButton(), authorizationStep)
 				.inputUserName(authorizationPage.getInputUserName(),driver, "Ввести никнейм",authorizationStep)
