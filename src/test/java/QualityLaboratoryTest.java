@@ -1,4 +1,5 @@
 import base.BaseTest;
+import io.qameta.allure.*;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import pages.AuthorizationPage;
@@ -33,6 +34,11 @@ public class QualityLaboratoryTest extends BaseTest {
 	}
 	
 	@Test
+	@Owner("Николай Марков")
+	@TmsLink("1")
+	@Story("US-1.0")
+	@Severity(SeverityLevel.CRITICAL)
+	@Description("Авторизация и отправка письма")
 	public void testSendEmail() {
 	
 		mainStep.clickElement(mainPage.getLoginButton(), authorizationStep)
