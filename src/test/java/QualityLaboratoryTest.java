@@ -42,8 +42,8 @@ public class QualityLaboratoryTest extends BaseTest {
 	public void testSendEmail() {
 	
 		mainStep.clickElement(mainPage.getLoginButton(), authorizationStep)
-				.inputUserName(authorizationPage.getInputUserName(),driver, "Ввести никнейм",authorizationStep)
-				.clickElement(authorizationPage.getNextButton(), authorizationStep)
+				.inputUserName(authorizationPage.getInputUserName(),authorizationPage.getNextButton(), driver, "Ввести никнейм",authorizationStep)
+//				.clickElement(authorizationPage.getNextButton(), authorizationStep)
 				.inputValue(authorizationPage.getInputPassword(), "Ввести пароль",authorizationStep)
 				.clickElement(authorizationPage.getSubmitButton(), mailStep)
 				.clickElement(mailPage.getWriteLetterButton(),letterStep)
