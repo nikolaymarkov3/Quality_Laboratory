@@ -2,6 +2,11 @@ package utils;
 
 import lombok.Getter;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
+
+import java.net.MalformedURLException;
+import java.net.URL;
 
 public class WebDriverManager {
     
@@ -17,7 +22,7 @@ public class WebDriverManager {
         return INSTANCE;
     }
     
-    public WebDriver getDriver(String browserName) {
+    public WebDriver getDriver(String browserName) throws MalformedURLException {
         return switch (browserName.toLowerCase()) {
             case "firefox" -> Driver.getFirefoxDriver();
             case "chrome" -> Driver.getChromeDriver();

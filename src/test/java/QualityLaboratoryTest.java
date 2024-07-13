@@ -42,8 +42,8 @@ public class QualityLaboratoryTest extends BaseTest {
 	public void testSendEmail() {
 	
 		mainStep.clickElement(mainPage.getLoginButton(), authorizationStep)
-				.inputUserName(authorizationPage.getInputUserName(),driver, "Ввести никнейм",authorizationStep)
-				.clickElement(authorizationPage.getNextButton(), authorizationStep)
+				.inputUserName(authorizationPage.getInputUserName(),authorizationPage.getNextButton(), driver, "Ввести никнейм",authorizationStep)
+//				.clickElement(authorizationPage.getNextButton(), authorizationStep)
 				.inputValue(authorizationPage.getInputPassword(), "Ввести пароль",authorizationStep)
 				.clickElement(authorizationPage.getSubmitButton(), mailStep)
 				.clickElement(mailPage.getWriteLetterButton(),letterStep)
@@ -52,4 +52,33 @@ public class QualityLaboratoryTest extends BaseTest {
 				.clickElement(letterPage.getButtonSend(),letterStep)
 				.assertEquals(letterPage.getSendingMessage().getText(), "Письмо отправлено", "Письмо не отправлено");
 	}
+
+//	public void testSendEmail() {
+//		methodA();
+//	}
+//
+//	void methodE() {System.out.println("E");}
+//
+//	void methodD() throws ArithmeticException {
+//		System.out.println("D");
+//		int a = 1/0;
+//	}
+//	void methodC() {System.out.println("C");}
+//	void methodB()
+//	{System.out.println("B");
+//		methodC();
+//		methodD();
+//		methodE();
+//	}
+//	void methodA() {
+//		try {
+//			System.out.println("A");
+//
+//			methodB();
+//			methodC();
+//		}catch (Exception e){
+////           throw e;
+//			System.out.println(e);
+//		}
+//	}
 }

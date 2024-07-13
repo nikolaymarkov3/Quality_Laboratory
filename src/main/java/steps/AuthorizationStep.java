@@ -8,15 +8,15 @@ import utils.Logger;
 
 public class AuthorizationStep extends BaseStep{
 	
-	@Step("Ввести {text}  в поле {webElement}")
-	public <T>T inputUserName(WebElement webElement,WebDriver driver, String text,T step) {
+	@Step("Ввести {text}  в поле {webElementInput}")
+	public <T>T inputUserName(WebElement webElementInput, WebElement button, WebDriver driver, String text,T step) {
 		driver.switchTo().frame(2);
 		Actions actions = new Actions(driver);
-		actions.click(webElement)
-				.sendKeys(text)
+		actions.sendKeys(webElementInput,text)
+				.click(button)
 				.build()
 				.perform();
-		Logger.logInfo("Выбор вложенного окна,клик по элементу " + webElement + " ввод текста " + text);
+		Logger.logInfo("Выбор вложенного окна, ввод текста= " + text + ", клик по кнопке= " + button.getText());
 		
 		return step;
 	}

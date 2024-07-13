@@ -4,6 +4,9 @@ import io.qameta.allure.Step;
 import lombok.Getter;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeOptions;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Optional;
@@ -11,10 +14,12 @@ import org.testng.annotations.Parameters;
 import pages.BasePage;
 import steps.BaseStep;
 
+import java.net.MalformedURLException;
+
 import static utils.WebDriverManager.getInst;
 
 public class BaseTest {
-	BaseStep baseStep = new BaseStep();
+
 	
 	public WebDriver driver;
 	@Getter
@@ -27,21 +32,39 @@ public class BaseTest {
 	
 	@BeforeClass
 	@Parameters("browser")
-	public void load(@Optional("chrome") String browser){
+	public void load(@Optional("chrome") String browser) throws MalformedURLException {
 		switch (browser) {
 			case "firefox" -> {
+				FirefoxOptions options = new FirefoxOptions();
+		options.addArguments("--headless");
+////		options.addArguments("--window-size=500,500");
+//		options.addArguments("--log-level=0");
+		options.addArguments("--no-sandbox");
+		options.addArguments("--disable-dev-shm-usage");
 				driver = getInst().getDriver("firefox");
 				driver.manage().window().maximize();
 				openBaseUrl(driver, getBASE_URL());
 			}
 			
 			case "chrome" -> {
+				ChromeOptions options = new ChromeOptions();
+		options.addArguments("--headless");
+////		options.addArguments("--window-size=500,500");
+//		options.addArguments("--log-level=0");
+		options.addArguments("--no-sandbox");
+		options.addArguments("--disable-dev-shm-usage");
 				driver = getInst().getDriver("chrome");
 				driver.manage().window().maximize();
 				openBaseUrl(driver, getBASE_URL());
 			}
 			
 			case "edge" -> {
+				EdgeOptions options = new EdgeOptions();
+		options.addArguments("--headless");
+////		options.addArguments("--window-size=500,500");
+//		options.addArguments("--log-level=0");
+		options.addArguments("--no-sandbox");
+		options.addArguments("--disable-dev-shm-usage");
 				driver = getInst().getDriver("edge");
 				driver.manage().window().maximize();
 				openBaseUrl(driver, getBASE_URL());
