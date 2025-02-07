@@ -16,12 +16,13 @@ public class Driver {
     private static WebDriver firefoxDriver;
     private static WebDriver chromeDriver;
     private static WebDriver edgeDriver;
+    private static RemoteWebDriver firefoxDriverR;
     
     private Driver() {
     }
     
-    public static WebDriver getFirefoxDriver() throws MalformedURLException {
-        if (firefoxDriver == null) {
+    public static RemoteWebDriver getFirefoxDriver() throws MalformedURLException {
+        if (firefoxDriverR == null) {
             FirefoxOptions options = new FirefoxOptions();
 ////            options.setCapability("browserVersion", "125.0");
 //            options.setCapability("selenoid:options", new HashMap<String, Object>() {{
@@ -46,11 +47,11 @@ public class Driver {
 //            }});
             
             
-            RemoteWebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), options);
+            firefoxDriverR = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), options);
 //            firefoxDriver = new FirefoxDriver();
-            firefoxDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+            firefoxDriverR.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         }
-        return firefoxDriver;
+        return firefoxDriverR;
     }
     
     public static WebDriver getChromeDriver() throws MalformedURLException {

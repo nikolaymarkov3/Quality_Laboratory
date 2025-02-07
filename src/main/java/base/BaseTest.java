@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Optional;
@@ -22,6 +23,8 @@ public class BaseTest {
 
 	
 	public WebDriver driver;
+	public RemoteWebDriver driverR;
+
 	@Getter
 	private static final String BASE_URL = "https://mail.ru/";
 	
@@ -41,9 +44,9 @@ public class BaseTest {
 //		options.addArguments("--log-level=0");
 		options.addArguments("--no-sandbox");
 		options.addArguments("--disable-dev-shm-usage");
-				driver = getInst().getDriver("firefox");
-				driver.manage().window().maximize();
-				openBaseUrl(driver, getBASE_URL());
+				driverR = (RemoteWebDriver) getInst().getDriver("firefox");
+				driverR.manage().window().maximize();
+				openBaseUrl(driverR, getBASE_URL());
 			}
 			
 			case "chrome" -> {
