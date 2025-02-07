@@ -2,19 +2,14 @@ package utils;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
-import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.Duration;
-import java.util.ArrayList;
-import java.util.HashMap;
 
 public class Driver {
 
@@ -27,7 +22,7 @@ public class Driver {
     
     public static WebDriver getFirefoxDriver() throws MalformedURLException {
         if (firefoxDriver == null) {
-//            FirefoxOptions options = new FirefoxOptions();
+            FirefoxOptions options = new FirefoxOptions();
 ////            options.setCapability("browserVersion", "125.0");
 //            options.setCapability("selenoid:options", new HashMap<String, Object>() {{
 //                /* How to add test badge */
@@ -51,8 +46,8 @@ public class Driver {
 //            }});
             
             
-//            RemoteWebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), options);
-            firefoxDriver = new FirefoxDriver();
+            RemoteWebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), options);
+//            firefoxDriver = new FirefoxDriver();
             firefoxDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         }
         return firefoxDriver;
